@@ -1,52 +1,43 @@
 const express = require("express");
-//JSON data import
-const {users} = require('./data/users.json'); 
 
-const usersRouter = require("./routes/users");
-const booksRouter = require("./routes/books");
+const {users} = require("../data/users.json");
 
-const app = express();
-
-const PORT = 8081; 
-
-app.use(express.json()); 
-
-app.get("/",(req,res)=>{
-    res.status(200).json({
-        message : "Server is up and running",
-    });
-});
-
-app.use("/users",usersRouter);
-app.use("/books",booksRouter);
+const router = express.Router();
+/***
+ * *
+ * 
+ * /users/fasd
+ * /users
+ * /users/sadfa
+ * */ 
 
 /** 
  * 
- * 1.Route :/users
+ * 1.Route :/users/users
  * Method : GET
  * Description: Get all single user 
  * Access: Public
  * * Parameters:None
  * 
- * *2. Route :/users/:id
+ * *2. Route :users/users/:id
  * Method : GET
  * Description: Get all single user by id
  * Access: Public
  * * Parameters:None
  * 
- * 3.Route :/users/:id
+ * 3.Route :users/users/:id
  * Method : POST
  * Description: Create new user
  * Access: Public
  * * Parameters:None
  * 
- * 4.Route :/users/:id
+ * 4.Route :users/users/:id
  * Method : PUT
  * Description: Create new user
  * Access: Public
  * * Parameters:ID
  * 
- * 5.Route :/users/:id
+ * 5.Route :users/users/:id
  * Method : DELETE
  * Description: Delete a user by id
  * Access: Public
@@ -55,14 +46,14 @@ app.use("/books",booksRouter);
  * 
  * */
 
-app.get("/users",(req,res)=>{
+router.get("/",(req,res)=>{
     res.status(200).json({
         success:true,
         data:users,
       });
     });
 
-app.get('/users/:id',(req,res)=>{
+router.get('/:id',(req,res)=>{
     const {id} = req.params
     const user = users.find((each) => each.id === id);
     if(!user){
@@ -78,8 +69,7 @@ app.get('/users/:id',(req,res)=>{
 });
 
 
-
-app.post("/users",(req,res)=>{
+router.post("/",(req,res)=>{
     const {id,name,surname,email,subscriptionType,subscriptionDate} = 
     req.body;
 
@@ -108,7 +98,7 @@ app.post("/users",(req,res)=>{
     });
 });
 
-app.put("/users/:id",(req,res)=>{
+router.put("/:id",(req,res)=>{
     const {id} = req.params;
     const {data} = req.body; 
 
@@ -135,7 +125,7 @@ app.put("/users/:id",(req,res)=>{
 
 });
 
-app.delete('/users/:id',(req,res) =>{
+router.delete('/:id',(req,res) =>{
     const {id} = req.params;
     const user = users.find((each)=> each.id === id);
 
@@ -153,13 +143,4 @@ app.delete('/users/:id',(req,res) =>{
 
 });
 
-app.get("*",(req,res)=>{
-    res.status(404).json({
-        message: "This route does not exist",
-    });
-});
-app.listen(PORT,()=>{
-    console.log(`Server is running on port ${PORT}`);
-})
-
-// http://localhost:8081
+module.exports = router;
