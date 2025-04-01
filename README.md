@@ -15,13 +15,13 @@ GET: Get user subscription details
 3.Fine if any 
 
 ## /books
-GET: Get all books
+GET: Get all books ✅
 POST: Create/Add new book✅
 
 
 ## / books/{id}
-GET: Get a book by id
-PUT: Update a book by id 
+GET: Get a book by id ✅
+PUT: Update a book by id ✅
 
 ## /books/issued/by-user
 GET: Get all issued books
@@ -35,6 +35,8 @@ GET:Get all issued books with fine
 Basic    (3 months)
 Standard (6 months)
 Premium(12 months)
+
+dates will be in format mm/dd/yyyy
 
 If the subscription date is 01/10/22
 and Subscription type is Standard 

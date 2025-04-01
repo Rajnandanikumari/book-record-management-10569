@@ -1,3 +1,5 @@
+
+ 
 {
     "users": [
       {
@@ -6,11 +8,10 @@
         "surname": "Doe",
         "email": "user@email.com",
         "issuedBook": "1",
-        "issuedDate": "04/01/2022",
-        "returnDate": "05/01/2022",
-
-        "subscriptionType": "Premium",
-        "subscriptionDate": "04/01/2022"
+        "issuedDate": "07/01/2022",
+        "returnDate": "07/04/2022",
+        "subscriptionType": "Basic",
+        "subscriptionDate": "07/01/2022"
       },
       {
         "id": "2",
@@ -18,10 +19,10 @@
         "surname": "Doe",
         "email": "user@email.com",
         "issuedBook": "2",
-        "issuedDate": "01/07/2021",
-        "returnDate": "01/10/2021",
+        "issuedDate": "08/01/2021",
+        "returnDate": "10/01/2021",
         "subscriptionType": "Basic",
-        "subscriptionDate": "03/01/2022"
+        "subscriptionDate": "08/01/2022"
       },
       {
         "id": "3",
